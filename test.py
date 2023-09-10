@@ -3,7 +3,6 @@ import numpy as np
 
 numbers = np.random.randint(0, 100, 200000)
 
-
 # Define the quicksort function
 def quicksort(array):
 
