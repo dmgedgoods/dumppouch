@@ -3,7 +3,11 @@ import numpy as np
 
 numbers = np.random.randint(0, 100, 200000)
 
+
+# Define the quicksort function
 def quicksort(array):
+
+
     # If the input array contains fewer than two elements,
     # then return it as the result of the function
     if len(array) < 2:
