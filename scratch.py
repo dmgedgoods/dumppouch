@@ -1,14 +1,32 @@
-hotelRate = 150
-cutHigh = 67
-cutLow = 63
+import socket
+import os
 
-print("Enter years married: ")
-yearsMarried = int(input())
-print("How many days to stay?")
-stayDays = int(input())
+HOST = '0.0.0.0'  # Adjust as necessary
 
-if yearsMarried > cutLow and yearsMarried < cutHigh:
-    print(f'{"You stay for 1/2 off!  $"}{int((stayDays * hotelRate) / 2)}')
-else:
-    print(f'{"Pay full price!  $"}{int(stayDays * hotelRate)}')
+def main():
+    # Create a raw socket, bind to public interface
+    if os.name == 'nt':
+        socket_protocol = socket.IPPROTO_IP
+    else:
+        socket_protocol = socket.IPPROTO_ICMP
+
+    sniffer = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket_protocol)
+    sniffer.bind((HOST, 0))
+
+    # Include the IP header in the capture
+    sniffer.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
+
+    # Enable promiscuous mode on Windows
+    if os.name == 'nt':
+        sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
+
+    # Read one packet
+    print(sniffer.recvfrom(65565))
+
+    # If on Windows, turn off promiscuous mode
+    if os.name == 'nt':
+        sniffer.ioctl(socket.SIO_RCVALL, socket.RCVALL_OFF)
+
+if __name__ == '__main__':
+    main()
 
