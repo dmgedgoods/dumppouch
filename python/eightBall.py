@@ -5,3 +5,4 @@ messages = ['Unknown',
             'Reply hazy, try again',
             'Not looking good, buddy']
 print(messages[random.randint(0, len(messages) - 1)])
+print(len(messages))
