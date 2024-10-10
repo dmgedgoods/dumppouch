@@ -1,0 +1,26 @@
+[package]
+name = "moxy"
+version = "0.1.0"
+edition = "2021"
+
+# You can add additional metadata here as needed
+description = "A command-line tool to query Proxmox VMs and SSH into them"
+license = "MIT"
+authors = ["mack <1@2.3>"]
+
+[dependencies]
+# For making HTTP requests
+reqwest = { version = "0.11", features = ["json"] }
+# For serializing and deserializing JSON data
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# For managing time durations
+tokio = { version = "1", features = ["full"] }
+rpassword = "7.3.1"
+
+[build-dependencies]
+# Optionally add any build dependencies here if needed
+
+[features]
+# Enable additional optional features here if needed
+
