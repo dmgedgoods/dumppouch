@@ -1,0 +1,16 @@
+# Ignore the target directory, where Cargo stores built files.
+target/
+
+# Ignore Cargo lock files for libraries (but keep for binary projects)
+# You may want to include Cargo.lock for binary projects to ensure reproducible builds.
+Cargo.lock
+
+# Ignore IDE and editor settings and backups
+*.rs.bk
+*.swp
+.idea/
+.vscode/
+
+# Ignore build output and temporary files
+*.log
+
