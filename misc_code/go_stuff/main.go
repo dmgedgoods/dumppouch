@@ -12,6 +12,7 @@ func main() {
     // Create a new text view and set some text to display.
     textView := tview.NewTextView().
         SetText("Hello, TUI world! Press 'q' to quit.")
+        
 
     // Set up input capture to quit the application when 'q' is pressed.
     textView.SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
