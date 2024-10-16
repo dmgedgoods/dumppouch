@@ -1,18 +1,32 @@
-use std::io;
+use std::fmt::Display;
 
 fn main() {
+    // addition
+    let sum = 5 +10;
 
-    println!("Chose a number");
-    let mut guess = String::new();
+    // subtraction
+    let difference = 95.5 - 4.3;
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+    // multiplication
+    let product = 4 * 30;
 
-    let guess: u8 = guess.trim().parse().expect("Not a number!");
+    // division
+    let quotient  = 56.7 / 32.2;
+    let truncated = -5 / 3; // results in -1
 
-    println!("{guess}");
+    // remainder
+    let remainder = 43 % 5;
 
-    let y: f32 = 3.23;
-    println!("{y}")
+    // tuples
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    // print it all
+    println!("Tup: {:?}", tup);
+    println!("{sum}");
+    println!("{difference}");
+    println!("{product}");
+    println!("{quotient}");
+    println!("{truncated}");
+    println!("{remainder}");
+
 }
